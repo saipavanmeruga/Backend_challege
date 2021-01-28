@@ -119,7 +119,7 @@ def delete_duplicates():
 def view():
     if request.method == 'GET':
         data = False
-        return render_template('singleimageViewer.html', data = data)
+        return render_template('singleImageViewer.html', data = data)
     if request.method == 'POST':
         data_1 = True
         search_term = str(request.form['file_name']).strip()
@@ -158,7 +158,7 @@ def view():
                 # print(image_list)
         except(Exception, psycopg2.DatabaseError) as error:
             print(error)
-        return render_template('singleimageViewer.html', data = data_1, images = image_list, msg =msg)
+        return render_template('singleImageViewer.html', data = data_1, images = image_list, msg =msg)
 @app.route('/deleteImage', methods = ['GET','POST'])
 def delete():
     if request.method == 'GET':
