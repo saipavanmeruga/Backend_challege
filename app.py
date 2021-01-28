@@ -18,11 +18,12 @@ from base64 import b64encode
 
 app = Flask(__name__)
 
-t_host = "localhost"
-t_port = "5432"
+
+t_host = "db-postgresql-blr1-98615-do-user-8626824-0.b.db.ondigitalocean.com"
+t_port = "25060"
 t_dbname = "image"
-t_name_user = "postgres"
-t_password = "sai1234"
+t_name_user = "doadmin"
+t_password = "tjjq7tc0wad2vc59"
 data_conn = psycopg2.connect(host=t_host, port=t_port, dbname=t_dbname, user=t_name_user, password=t_password)
 db_cursor = data_conn.cursor()
 
