@@ -170,7 +170,7 @@ def delete():
         form_data = request.form
         data = form_data.to_dict(flat = False)
         print(data)
-        search_term = str(data['file_name']).strip()
+        search_term = str(data['file_name'][0]).strip()
         # print(data)
  
         try:
