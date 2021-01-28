@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+{% extends "index.html" %}
+  <head>
+<title>{% block title %} Search Image {% endblock %} </title>
+  </head>
+  <body>
+<div style="padding-left:16px">
+
+   {% block header %}
+       <h2>Search Image </h2>
+
+   {% endblock %}
+
+
+</div>
+{% block content %}
+    <form method="POST" action="\viewImage" enctype="multipart/form-data">
+      <p>Enter the filename:<input type="text" name="file_name" required></p>
+      <p><input type="submit" value="Search"></p>
+    </form>
+<h2>{{ msg }}</h2>
+{% if data %}
+{% if images %}
+{% for image in images %}
+<p> Image Name: {{ image[2] }} </p>
+<p> Image ID : {{ image[1] }}</p>
+<img src="data:;base64,{{ image[0] }}"/></br>
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endblock %}
+  </body>
+
+</html>

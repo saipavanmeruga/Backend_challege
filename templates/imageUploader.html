@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+{% extends "index.html" %}
+  <head>
+<title>{% block title %} Image Upload {% endblock %} </title>
+  </head>
+  <body>
+  <div style="padding-left:16px">
+
+   {% block header %}
+       <h2>Upload Image</h2>
+   {% endblock %}
+
+
+</div>
+{% block content %}
+    <form method="POST" action="\upload" enctype="multipart/form-data">
+      <p><input type="file" name="image_file" accept=".jpg,.jpeg,.png,.gif" multiple required></p>
+      <p><input type="submit" value="Submit"></p>
+    </form>
+    {% if msg %}
+    <h2>{{ msg }}</h2>
+    {% endif %}
+{% endblock %}  
+  </body>
+</html>

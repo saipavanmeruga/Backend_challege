@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+{% extends "index.html" %}
+  <head>
+<title>{% block title %} View all Images {% endblock %} </title>
+  </head>
+  <body>
+<div style="padding-left:16px">
+
+   {% block header %}
+       <h2>View all Images </h2>
+   {% endblock %}
+
+
+</div>
+{% block content %}
+    <form method="POST" action = '/viewall' enctype="multipart/form-data">
+      <p>View all the image names<input type="submit" value="View all"></p>
+
+    </form>
+{% if data %}
+{% if data is string %}
+    <h2>{{ data }}</h2>
+
+{% else %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Filename</th>
+        <th>Time of Upload</th>
+      </tr>
+    </thead>
+{% for hit in data %}
+    <tbody>
+      <tr>
+        <td>{{ hit[0] }}</td>
+        <td>{{ hit[1] }}</td>
+        <td>{{ hit[3] }}</td>
+      </tr>
+    </tbody>
+{% endfor %}
+{% endif %}
+  </table>
+<form method = "POST" action = '/deleteDuplicate' enctype="multipart/form-data">
+  <p>Delete the duplicate records<input type="submit" name="submit_button" value="Delete Duplicates"></p>
+</form>
+
+
+
+{% endif %}
+<h2>{{ msg }}</h2>
+{% endblock %}
+  </body>
+
+</html>
